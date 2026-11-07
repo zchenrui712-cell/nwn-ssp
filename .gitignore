@@ -1,0 +1,8 @@
+__pycache__/
+.venv/
+demo-output/
+*.npz
+*.npy
+*.mat
+*.csv
+*.ipynb
