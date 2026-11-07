@@ -2,7 +2,9 @@
 
 University of Sydney SSP (Special Study Program)
 
-This simulation study asks whether a nanowire network can transform MNIST handwritten digits into readout features that separate digit classes. It examines the feature stage of physical reservoir computing, where the network's dynamics transform an input before a separate readout model can be trained.
+[Project page](https://zchenrui712-cell.github.io/nwn.html) · [Notebook excerpts](docs/notebook-code.md) · [Python walkthrough](analysis/demo.py)
+
+I used a 15-image pilot and an 80-image follow-up to study whether a simulated nanowire network could produce readout features that separate MNIST digit classes. The expanded study found weak class separation in both representations. The code below shows how the study reached that comparison.
 
 ## Code and reproducible walkthrough
 
