@@ -2,7 +2,7 @@
 
 University of Sydney SSP (Special Study Program)
 
-[Project page](https://zchenrui712-cell.github.io/nwn.html) · [Notebook excerpts](docs/notebook-code.md) · [Python walkthrough](analysis/demo.py)
+[Project page](https://zchenrui712-cell.github.io/nwn.html) · [Study figures](#study-figures) · [Notebook excerpts](docs/notebook-code.md) · [Python walkthrough](analysis/demo.py)
 
 I used a 15-image pilot and an 80-image follow-up to study whether a simulated nanowire network could produce readout features that separate MNIST digit classes. The expanded study found weak class separation in both representations. The code below shows how the study reached that comparison.
 
@@ -53,6 +53,33 @@ Before comparing digit classes, I explored the input voltage range and simulatio
 3. **Feature extraction.** For each readout, take the L2 norm of the difference between the input and readout traces. This Euclidean distance yields one number per readout and four features per image.
 4. **Comparison.** Compare class means, variability, within-class spread, and Euclidean distances between class centroids. Use PCA to visualise the representations and calculate silhouette scores separately in the full standardised feature spaces.
 
+## Study figures
+
+### 15-image pilot
+
+![Five handwritten MNIST examples of each of digits 1, 2 and 3](assets/research/mnist-pilot-inputs.png)
+
+The input grid shows the five images per class used to check the analysis pipeline.
+
+### 80-image study
+
+![Silhouette scores of 0.0195 for raw MNIST and −0.0367 for the four readout features](assets/research/silhouette-comparison.png)
+
+The silhouette comparison uses the same 80 images in both standardised representations. Class separation was weak for both, with a lower score for the readout features.
+
+![Mean L2 distances by digit across four readout channels with standard deviation bars](assets/research/electrode-mean-sd.png)
+
+The error bars show one standard deviation across the 20 images in each class.
+
+<details>
+<summary>Centroid distances and within-class variability</summary>
+
+![Euclidean distance heatmap of the four digit centroids, with digits 2 and 3 the closest pair](assets/research/centroid-distances.png)
+
+![Within-class RMS spread in four-feature space, with digit 3 having the largest spread](assets/research/within-class-spread.png)
+
+</details>
+
 ## Results and limitations
 
 In the expanded sample, digits 2 and 3 had the closest class centroids. Digit 1 had a smaller within-class RMS spread than digit 3. These are descriptive observations from the four-feature representation.
@@ -67,7 +94,7 @@ Welch's t-test is a possible follow-up for a prespecified feature across two ind
 
 ## Materials
 
-This repository contains the portfolio overview, conceptual workflow illustrations, notebook code excerpts and the runnable demonstration. The research group retains the core simulator, topology and configuration files, experiment outputs and research figures. The screenshot index describes the original development record without bundling those files.
+This repository contains the portfolio overview, conceptual workflow illustrations, selected figures from my notebook analysis, code excerpts and a runnable demonstration. The research group retains the core simulator, topology and configuration files, raw experiment outputs and group materials.
 
 ## Background reading
 
