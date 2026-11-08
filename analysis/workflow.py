@@ -131,11 +131,12 @@ def class_statistics(features, labels):
         if len(samples) < 2:
             raise ValueError("Sample variance requires at least two images per class")
         mean = samples.mean(axis=0)
+        variance = samples.var(axis=0, ddof=1)
         summaries[int(digit)] = {
             "count": len(samples),
             "mean": mean,
-            "std": samples.std(axis=0, ddof=1),
-            "variance": samples.var(axis=0, ddof=1),
+            "std": np.sqrt(variance),
+            "variance": variance,
             "spread": np.sqrt(np.mean(np.sum((samples - mean) ** 2, axis=1))),
         }
     return summaries

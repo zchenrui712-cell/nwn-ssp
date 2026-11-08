@@ -132,6 +132,14 @@ def main():
     if len(features) < len(indices):
         return
 
+    np.savetxt(
+        output / "l2-features.csv",
+        np.column_stack((indices, selected_labels, features)),
+        delimiter=",",
+        fmt=("%d", "%d", "%.8f", "%.8f", "%.8f", "%.8f"),
+        header="input_row,label,l2_readout_1,l2_readout_2,l2_readout_3,l2_readout_4",
+        comments="",
+    )
     summaries = class_statistics(features, selected_labels)
     scores = silhouette_comparison(selected_pixels, features, selected_labels)
     print(f"Synthetic readout comparison: input {scores[0]:.4f}, L2 {scores[1]:.4f}")

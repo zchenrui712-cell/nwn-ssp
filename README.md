@@ -23,7 +23,7 @@ python analysis/demo.py --design expanded --batch-size 5
 python analysis/demo.py --design expanded
 ```
 
-The last two commands demonstrate saving the first five images and resuming to 80. Each design writes local figures to `demo-output/`. Use one process per checkpoint path. To use a local, headerless MNIST-format CSV in place of the generated image patterns, add `--mnist-csv <path>` and choose a fresh `--output <directory>`. The demo always generates synthetic readouts. Its numbers and plots are demonstration output.
+The last two commands demonstrate saving the first five images and resuming to 80. Each completed design writes figures and `l2-features.csv` to its folder under `demo-output/`. Each CSV row has the zero-based input row, digit label and four distances, one per synthetic readout. Use one process per checkpoint path. To use a local, headerless MNIST-format CSV in place of the generated image patterns, add `--mnist-csv <path>` and choose a fresh `--output <directory>`. The demo always generates synthetic readouts. Its numbers and plots are demonstration output.
 
 ## Contribution
 
@@ -91,6 +91,10 @@ Welch's t-test is a possible follow-up for a prespecified feature across two ind
 ## Illustrative Python example
 
 [The readout-distance example](examples/readout_distance.py) uses synthetic traces to show how an L2 distance yields one feature per readout. Run `python examples/readout_distance.py` to print `(0.25, 0.433)`. The example is independent of the research simulator.
+
+![Synthetic input and four synthetic readouts displayed as 28 by 28 grids](assets/research/synthetic-readout-inspection.png)
+
+This figure comes from the runnable walkthrough. The same grid position in each panel corresponds to the same trace sample. [Try the two-readout example in your browser](https://zchenrui712-cell.github.io/nwn.html#readout-example).
 
 ## Materials
 
